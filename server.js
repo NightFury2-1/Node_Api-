@@ -13,9 +13,10 @@ app.use(errorMiddleware);
 const MongoURL = process.env.MONGO_URL;
 const port = process.env.PORT;
 const FRONTEND = process.env.FRONTEND;
+const test = process.env.TEST_FRONTEND;
 
 var corsOptions = {
-  origin: FRONTEND,
+  origin: [FRONTEND, test],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
